@@ -131,7 +131,9 @@ struct AstroDetails: Codable {
     var moonrise: String?
     var moonset: String?
     var moonPhase: String?
-    var moonIllumination: String?
+    var moonIllumination: Double?
+    var isMoonUp: Int?
+    var isSunUp: Int?
     
     enum CodingKeys: String, CodingKey {
         
@@ -141,6 +143,7 @@ struct AstroDetails: Codable {
         case moonset
         case moonPhase = "moon_phase"
         case moonIllumination = "moon_illumination"
+        case isMoonUp = "is_moon_up"
+        case isSunUp = "is_sun_up"
     }
 }
-
