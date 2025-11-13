@@ -10,13 +10,13 @@ import SwiftData
 
 struct HomeView: View {
     
-    @Query(filter: #Predicate<TaskDetails> { task in
+    @Query(filter: #Predicate<Task> { task in
         task.isCompleted == false }
-    ) var savedTasks: [TaskDetails]
+    ) var savedTasks: [Task]
     @Environment(\.modelContext) private var context
     
     @State private var showAdd = false
-    @State private var editedTask: TaskDetails?
+    @State private var editedTask: Task?
     @StateObject private var viewModel = HomeViewModel()
     
     var body: some View {

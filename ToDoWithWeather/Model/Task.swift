@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class TaskDetails {
+class Task {
     
     @Attribute(.unique) var id = UUID()
     var title: String

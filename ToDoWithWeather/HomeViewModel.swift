@@ -15,8 +15,8 @@ class HomeViewModel: ObservableObject {
     var current: CurrentDetails?
     var astromony: AstronomyDetails?
     var astro: AstroDetails?
-    var latitude: String?
-    var longitude: String?
+    private var latitude: String?
+    private var longitude: String?
     
     
     var temperature: String {
@@ -36,7 +36,7 @@ class HomeViewModel: ObservableObject {
     }
     
     var coordinates: String {
-        "\(latitude ?? ""), \(longitude ?? "")"
+        "\(latitude ?? ""),\(longitude ?? "")"
     }
     
     func setCoordinates(latitude: String, longitude: String) {

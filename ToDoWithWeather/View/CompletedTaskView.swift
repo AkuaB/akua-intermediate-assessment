@@ -10,9 +10,9 @@ import SwiftData
 
 struct CompletedTaskView: View {
     
-    @Query(filter: #Predicate<TaskDetails> { task in
+    @Query(filter: #Predicate<Task> { task in
         task.isCompleted }
-        ) var savedTasks: [TaskDetails]
+        ) var savedTasks: [Task]
     
     var body: some View {
         if savedTasks.isEmpty {

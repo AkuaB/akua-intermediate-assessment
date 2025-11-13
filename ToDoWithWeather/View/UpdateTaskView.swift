@@ -11,7 +11,7 @@ struct UpdateTaskView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @Bindable var task: TaskDetails
+    @Bindable var task: Task
     
     var body: some View {
         
@@ -43,5 +43,5 @@ struct UpdateTaskView: View {
 }
 
 #Preview {
-    UpdateTaskView(task: TaskDetails())
+    UpdateTaskView(task: Task())
 }

@@ -9,12 +9,6 @@ import SwiftUI
 import CoreLocation
 import SwiftData
 
-class GlobalString: ObservableObject {
-    static let shared = GlobalString()
-  @Published var latitude = ""
-  @Published var longitude = ""
-}
-
 struct ContentView: View {
 
     var locationManager = LocationManager()
@@ -23,7 +17,7 @@ struct ContentView: View {
         
         TabView {
             Tab("Home", systemImage: "house") {
-                HomeView().environmentObject(GlobalString())
+                HomeView().environmentObject(GlobalLocation())
             }
             Tab("Completed", systemImage: "checkmark.rectangle.fill") {
                 CompletedTaskView()
@@ -59,8 +53,8 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         print(locations)
         guard let location = locations.last else { return }
         lastKnownLocation = location
-        GlobalString.shared.latitude = "\(location.coordinate.latitude)"
-        GlobalString.shared.longitude = "\(location.coordinate.longitude)"
+        GlobalLocation.shared.latitude = "\(location.coordinate.latitude)"
+        GlobalLocation.shared.longitude = "\(location.coordinate.longitude)"
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

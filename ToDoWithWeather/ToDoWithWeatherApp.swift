@@ -13,6 +13,6 @@ struct ToDoWithWeatherApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: TaskDetails.self)
+        .modelContainer(for: Task.self)
     }
 }

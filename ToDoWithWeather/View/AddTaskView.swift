@@ -13,7 +13,7 @@ struct AddTaskView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) private var context
     
-    @State private var task = TaskDetails()
+    @State private var task = Task()
     
     var body: some View {
       
@@ -38,7 +38,7 @@ struct AddTaskView: View {
     
     private func addItem(title: String, description: String) {
         withAnimation {
-            let newItem = TaskDetails(title: title, taskDescription: description)
+            let newItem = Task(title: title, taskDescription: description)
             context.insert(newItem)
         }
         dismiss()
@@ -47,5 +47,5 @@ struct AddTaskView: View {
 
 #Preview {
     AddTaskView()
-        .modelContainer(for: TaskDetails.self)
+        .modelContainer(for: Task.self)
 }
